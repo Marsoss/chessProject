@@ -1,6 +1,7 @@
 import pygame
 import sys
-from pygame_extension import button
+if __name__ != "__main__":
+    from pygame_extension import button
 
 class Menu:
     def __init__(self, screen, options, functions, back_function=None, title="Menu", font_size=40, button_size=(300, 60), gap=20):
@@ -86,9 +87,10 @@ def main_menu(screen):
 
 def pve_game(screen):
     print("PvE game!")
-
+    return main_menu(screen)
 def ai_game(screen):
     print("AI game!")
+    return main_menu(screen)
 
 def cadence_menu(screen):
     options = [
@@ -110,20 +112,26 @@ def cadence_menu(screen):
 
 def bullet_game(screen):
     print("BULLET GAME!")
+    return main_menu(screen)
 
 def blitz_game(screen):
     print("BLITZ GAME!")
+    return main_menu(screen)
 
 def rapid_game(screen):
     print("RAPID GAME!")
+    return main_menu(screen)
 
 def long_game(screen):
     print("LONG GAME!")
+    return main_menu(screen)
 
 def custom_game(screen):
     print("CUSTOM GAME!")
+    return main_menu(screen)
 
 if __name__ == "__main__":
+    import button
     pygame.init()
     SCREEN_WIDTH, SCREEN_HEIGHT = 800, 600
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))

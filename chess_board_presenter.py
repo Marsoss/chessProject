@@ -2,7 +2,6 @@ import pygame
 from chess_rules import Referee
 from chess_AI import ChessAI
 from chess_scriber import ChessNotationTranslator
-from main_menu import main_menu
 
 class ChessBoardPresenter:
     def __init__(self, view, referee : Referee):
@@ -67,4 +66,3 @@ class ChessBoardPresenter:
             self.referee.make_move(from_pos, to_pos)
         if key == pygame.K_q:
             self.running = False
-            main_menu(self.view.screen)

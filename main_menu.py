@@ -30,11 +30,13 @@ def main_menu(screen):
     menu = Menu(screen, options, functions, back_function=None, title="Menu Principal", button_size=(420,60))
     return menu.run()
 
-def pve_game(*args):
+def pve_game(screen):
     print("PVE!")
+    return main_menu(screen)
 
-def ai_game(*args):
+def ai_game(screen):
     print("AI game!")
+    return main_menu(screen)
 
 def cadence_menu(screen):
     options = [
@@ -63,6 +65,7 @@ def unlimited_game(*args):
     view = ChessBoardView()
     presenter = ChessBoardPresenter(view, referee)
     presenter.start_game()
+    return main_menu(screen)
 
 def custom_game(start_time, increment):
     board = Board([[None for _ in range(8)] for _ in range(8)])
@@ -73,21 +76,29 @@ def custom_game(start_time, increment):
     view = ChessBoardView()
     presenter = ChessBoardPresenter(view, referee)
     presenter.start_game()
+    return main_menu(screen)
+
 
 def long_game(*args):
     custom_game(90*60, 30)
+    return main_menu(screen)
+
 
 def rapid_game(*args):
     custom_game(30*60, 10)
+    return main_menu(screen)
 
 def blitz10_game(*args):
     custom_game(10*60, 10)
+    return main_menu(screen)
 
 def blitz3_game(*args):
     custom_game(3*60, 3)
+    return main_menu(screen)
 
 def bullet_game(*args):
     custom_game(60, 1)
+    return main_menu(screen)
 
 if __name__ == '__main__':
     pygame.init()
